@@ -1,0 +1,7 @@
+.checkbox_region {
+	padding-top:20px;
+}
+label {
+	display: inline-block;
+	width: 70px;
+}
