@@ -36,19 +36,21 @@
 		var checkbox_id = "cb_" + id_num;
 		var checkbox = cbx.getElementById(checkbox_id);
 
-		if (path.getAttribute("choosen") == 0) {
-			path.setAttribute("choosen","1");
+		if (path.getAttribute("choosen") == "false") {
+			path.setAttribute("choosen","true");
 			path.setAttribute("fill-opacity","1");
 			path.setAttribute("fill","orange");
 			checkbox.checked = true;
 			checkbox.parentNode.style.backgroundColor = "orange";
 		}
 		else {
-			path.setAttribute("choosen","0");
+			path.setAttribute("choosen","false");
 			path.setAttribute("fill","yellow");
 			checkbox.checked = false;
 			checkbox.parentNode.style.backgroundColor = "yellow";
 		}
+		var areaText = svg.getElementById("totalarea").firstChild;
+		areaText.nodeValue = getAreaRatio().toString()+"%";
 	}
 	
 	function mOverEvent(evt) {
@@ -68,7 +70,7 @@
 		var text = svg.getElementById("location").firstChild;
 		text.nodeValue = name;
 
-		if (path.getAttribute("choosen") == 0) {
+		if (path.getAttribute("choosen") == "false") {
 			path.setAttribute("fill-opacity","1");
 			checkbox.parentNode.style.backgroundColor = "yellow";
 		} else {
@@ -90,11 +92,24 @@
 		var region = svg.getElementById(region_id);
 		region.setAttribute("fill-opacity","0");
 
-		if (path.getAttribute("choosen") == 0) {
+		if (path.getAttribute("choosen") == "false") {
 			path.setAttribute("fill-opacity","0");
 			checkbox.parentNode.style.backgroundColor = "transparent";
 		} else {
 			path.setAttribute("fill","red");
 			checkbox.parentNode.style.backgroundColor = "red";
 		}
+	}
+
+	function getAreaRatio() {
+		const TOTAL_AREA = 99959.63;
+		var region = svg.getElementById("cities");
+		var cities = region.getElementsByTagName("path");
+		var areaSum = 0;
+		for (var i = 0; i < cities.length; i++) {
+			if (cities[i].getAttribute("choosen") == "true") {
+				areaSum += Number(cities[i].getAttribute("area"));
+			}
+		}
+		return (areaSum * 100/TOTAL_AREA).toFixed(2);
 	}
