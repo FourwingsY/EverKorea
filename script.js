@@ -4,6 +4,12 @@
 		cbx = document.getElementById("checkboxlist").contentDocument;
 	}
 
+	function loadURL() {
+		var choosen = getParamsFromURL();
+		if (choosen)
+			presentChoosen(choosen);
+	}
+
 	function setMapOption() {
 		var element = svg.getElementById("cities");
 		var elements = element.getElementsByTagName("path");
@@ -113,3 +119,39 @@
 		}
 		return (areaSum * 100/TOTAL_AREA).toFixed(2);
 	}
+
+	function getParamsFromURL() {
+		var idx = document.URL.indexOf('?');
+		var tempParams = new Object();
+
+		if (idx == -1)
+			return null;
+	
+		var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+		for (var i=0; i<pairs.length; i++) {
+			nameVal = pairs[i].split('=');
+			tempParams[nameVal[0]] = nameVal[1];
+		}
+		return tempParams["choosen"].split(",");
+	}
+
+	function presentChoosen(idList) {
+		var element = svg.getElementById("cities");
+		var elements = element.getElementsByTagName("path");
+
+		for (var i = 0; i < idList.length; i++) {
+			var path_id = "city_" + idList[i];
+			var path = svg.getElementById(path_id);
+
+			var checkbox_id = "cb_" + idList[i];
+			var checkbox = cbx.getElementById(checkbox_id);
+
+			var evt = document.createEvent("MouseEvents");
+			evt.initEvent('click', true, true);
+			path.dispatchEvent(evt);
+
+			path.setAttribute("fill", "red");
+			checkbox.parentNode.style.backgroundColor = "red";
+		}
+	}
+//]]>
