@@ -4,7 +4,23 @@
 		<link rel="stylesheet" type="text/css" href="checkbox.css">
 	</head>
 	<body>
-<div class="checkbox_region">
+
+<div class="category">
+<ul>
+<li id="solo" onclick="listClick(evt);" regionId='s' choosen=false>특별시</li>
+<li id="gw" onclick="listClick(evt);" regionId='0' choosen=false>강원도</li>
+<li id="gg" onclick="listClick(evt);" regionId='1' choosen=false>경기도</li>
+<li id="gn" onclick="listClick(evt);" regionId='2' choosen=false>경상남도</li>
+<li id="gb" onclick="listClick(evt);" regionId='3' choosen=false>경상북도</li>
+<li id="jn" onclick="listClick(evt);" regionId='12' choosen=false>전라남도</li>
+<li id="jb" onclick="listClick(evt);" regionId='13' choosen=false>전라북도</li>
+<li id="jj" onclick="listClick(evt);" regionId='14' choosen=false>제주도</li>
+<li id="cn" onclick="listClick(evt);" regionId='15' choosen=false>충청남도</li>
+<li id="cb" onclick="listClick(evt);" regionId='16' choosen=false>충청북도</li>
+</div>
+
+<div class="checkbox_list">
+<div id="cb_region_s" class="checkbox_region">
 	<label id="label_20"><input type="checkbox" id="cb_20" cityname="광주" region="4" />광주</label>
 	<label id="label_41"><input type="checkbox" id="cb_41" cityname="대구" region="5" />대구</label>
 	<label id="label_42"><input type="checkbox" id="cb_42" cityname="대전" region="6" />대전</label>
@@ -14,7 +30,7 @@
 	<label id="label_104"><input type="checkbox" id="cb_104" cityname="울산" region="10"/>울산</label>
 	<label id="label_115"><input type="checkbox" id="cb_115" cityname="인천" region="11"/>인천</label>
 </div>
-<div class="checkbox_region">
+<div id="cb_region_0" class="checkbox_region">
 	<label id="label_1"><input type="checkbox" id="cb_1" cityname="강릉" region="0" />강릉</label>
 	<label id="label_9"><input type="checkbox" id="cb_9" cityname="고성" region="0" />고성</label>
 	<label id="label_44"><input type="checkbox" id="cb_44" cityname="동해" region="0" />동해</label>
@@ -34,24 +50,17 @@
 	<label id="label_161"><input type="checkbox" id="cb_161" cityname="화천" region="0" />화천</label>
 	<label id="label_162"><input type="checkbox" id="cb_162" cityname="횡성" region="0" />횡성</label>
 </div>
-<div class="checkbox_region">
+<div id="cb_region_1" class="checkbox_region">
 	<label id="label_0"><input type="checkbox" id="cb_0" cityname="가평" region="1" />가평</label>
 	<label id="label_11"><input type="checkbox" id="cb_11" cityname="고양" region="1" />고양</label>
-	<label id="label_23"><input type="checkbox" id="cb_23" cityname="구리" region="1" />구리</label>
-	<label id="label_31"><input type="checkbox" id="cb_31" cityname="김포" region="1" />김포</label>
-	<label id="label_34"><input type="checkbox" id="cb_34" cityname="남양주" region="1" />남양주</label>
-	<label id="label_43"><input type="checkbox" id="cb_43" cityname="동두천" region="1" />동두천</label>
-	<label id="label_82"><input type="checkbox" id="cb_82" cityname="양주" region="1" />양주</label>
-	<label id="label_87"><input type="checkbox" id="cb_87" cityname="연천" region="1" />연천</label>
-	<label id="label_111"><input type="checkbox" id="cb_111" cityname="의정부" region="1" />의정부</label>
-	<label id="label_145"><input type="checkbox" id="cb_145" cityname="파주" region="1" />파주</label>
-	<label id="label_148"><input type="checkbox" id="cb_148" cityname="포천" region="1" />포천</label>
-</div>
-<div class="checkbox_region">
 	<label id="label_16"><input type="checkbox" id="cb_16" cityname="과천" region="1" />과천</label>
 	<label id="label_17"><input type="checkbox" id="cb_17" cityname="광명" region="1" />광명</label>
 	<label id="label_19"><input type="checkbox" id="cb_19" cityname="광주" region="1" />광주</label>
+	<label id="label_23"><input type="checkbox" id="cb_23" cityname="구리" region="1" />구리</label>
 	<label id="label_27"><input type="checkbox" id="cb_27" cityname="군포" region="1" />군포</label>
+	<label id="label_31"><input type="checkbox" id="cb_31" cityname="김포" region="1" />김포</label>
+	<label id="label_34"><input type="checkbox" id="cb_34" cityname="남양주" region="1" />남양주</label>
+	<label id="label_43"><input type="checkbox" id="cb_43" cityname="동두천" region="1" />동두천</label>
 	<label id="label_57"><input type="checkbox" id="cb_57" cityname="부천" region="1" />부천</label>
 	<label id="label_66"><input type="checkbox" id="cb_66" cityname="성남" region="1" />성남</label>
 	<label id="label_69"><input type="checkbox" id="cb_69" cityname="수원" region="1" />수원</label>
@@ -59,17 +68,22 @@
 	<label id="label_76"><input type="checkbox" id="cb_76" cityname="안산" region="1" />안산</label>
 	<label id="label_77"><input type="checkbox" id="cb_77" cityname="안성" region="1" />안성</label>
 	<label id="label_78"><input type="checkbox" id="cb_78" cityname="안양" region="1" />안양</label>
+	<label id="label_82"><input type="checkbox" id="cb_82" cityname="양주" region="1" />양주</label>
 	<label id="label_83"><input type="checkbox" id="cb_83" cityname="양평" region="1" />양평</label>
 	<label id="label_85"><input type="checkbox" id="cb_85" cityname="여주" region="1" />여주</label>
+	<label id="label_87"><input type="checkbox" id="cb_87" cityname="연천" region="1" />연천</label>
 	<label id="label_98"><input type="checkbox" id="cb_98" cityname="오산" region="1" />오산</label>
 	<label id="label_102"><input type="checkbox" id="cb_102" cityname="용인" region="1" />용인</label>
 	<label id="label_110"><input type="checkbox" id="cb_110" cityname="의왕" region="1" />의왕</label>
+	<label id="label_111"><input type="checkbox" id="cb_111" cityname="의정부" region="1" />의정부</label>
 	<label id="label_112"><input type="checkbox" id="cb_112" cityname="이천" region="1" />이천</label>
+	<label id="label_145"><input type="checkbox" id="cb_145" cityname="파주" region="1" />파주</label>
 	<label id="label_147"><input type="checkbox" id="cb_147" cityname="평택" region="1" />평택</label>
+	<label id="label_148"><input type="checkbox" id="cb_148" cityname="포천" region="1" />포천</label>
 	<label id="label_150"><input type="checkbox" id="cb_150" cityname="하남" region="1" />하남</label>
 	<label id="label_159"><input type="checkbox" id="cb_159" cityname="화성" region="1" />화성</label>
 </div>
-<div class="checkbox_region">
+<div id="cb_region_2" class="checkbox_region">
 	<label id="label_3"><input type="checkbox" id="cb_3" cityname="거제" region="2" />거제</label>
 	<label id="label_4"><input type="checkbox" id="cb_4" cityname="거창" region="2" />거창</label>
 	<label id="label_10"><input type="checkbox" id="cb_10" cityname="고성" region="2" />고성</label>
@@ -89,7 +103,7 @@
 	<label id="label_153"><input type="checkbox" id="cb_153" cityname="함양" region="2" />함양</label>
 	<label id="label_155"><input type="checkbox" id="cb_155" cityname="합천" region="2" />합천</label>
 </div>
-<div class="checkbox_region">
+<div id="cb_region_3" class="checkbox_region">
 	<label id="label_5"><input type="checkbox" id="cb_5" cityname="경산" region="3" />경산</label>
 	<label id="label_6"><input type="checkbox" id="cb_6" cityname="경주" region="3" />경주</label>
 	<label id="label_8"><input type="checkbox" id="cb_8" cityname="고령" region="3" />고령</label>
@@ -114,7 +128,7 @@
 	<label id="label_141"><input type="checkbox" id="cb_141" cityname="칠곡" region="3" />칠곡</label>
 	<label id="label_149"><input type="checkbox" id="cb_149" cityname="포항" region="3" />포항</label>
 </div>
-<div class="checkbox_region">
+<div id="cb_region_12" class="checkbox_region">
 	<label id="label_2"><input type="checkbox" id="cb_2" cityname="강진" region="12"/>강진</label>
 	<label id="label_13"><input type="checkbox" id="cb_13" cityname="고흥" region="12"/>고흥</label>
 	<label id="label_14"><input type="checkbox" id="cb_14" cityname="곡성" region="12"/>곡성</label>
@@ -138,7 +152,7 @@
 	<label id="label_156"><input type="checkbox" id="cb_156" cityname="해남" region="12"/>해남</label>
 	<label id="label_160"><input type="checkbox" id="cb_160" cityname="화순" region="12"/>화순</label>
 </div>
-<div class="checkbox_region">
+<div id="cb_region_13" class="checkbox_region">
 	<label id="label_12"><input type="checkbox" id="cb_12" cityname="고창" region="13"/>고창</label>
 	<label id="label_25"><input type="checkbox" id="cb_25" cityname="군산" region="13"/>군산</label>
 	<label id="label_29"><input type="checkbox" id="cb_29" cityname="김제" region="13"/>김제</label>
@@ -154,11 +168,11 @@
 	<label id="label_122"><input type="checkbox" id="cb_122" cityname="정읍" region="13"/>정읍</label>
 	<label id="label_127"><input type="checkbox" id="cb_127" cityname="진안" region="13"/>진안</label>
 </div>
-<div class="checkbox_region">
+<div id="cb_region_14" class="checkbox_region">
 	<label id="label_62"><input type="checkbox" id="cb_62" cityname="서귀포" region="14"/>서귀포</label>
 	<label id="label_123"><input type="checkbox" id="cb_123" cityname="제주" region="14"/>제주</label>
 </div>
-<div class="checkbox_region">
+<div id="cb_region_15" class="checkbox_region">
 	<label id="label_7"><input type="checkbox" id="cb_7" cityname="계룡" region="15"/>계룡</label>
 	<label id="label_15"><input type="checkbox" id="cb_15" cityname="공주" region="15"/>공주</label>
 	<label id="label_28"><input type="checkbox" id="cb_28" cityname="금산" region="15"/>금산</label>
@@ -175,7 +189,7 @@
 	<label id="label_143"><input type="checkbox" id="cb_143" cityname="태안" region="15"/>태안</label>
 	<label id="label_157"><input type="checkbox" id="cb_157" cityname="홍성" region="15"/>홍성</label>
 </div>
-<div class="checkbox_region">
+<div id="cb_region_16" class="checkbox_region">
 	<label id="label_21"><input type="checkbox" id="cb_21" cityname="괴산" region="16"/>괴산</label>
 	<label id="label_38"><input type="checkbox" id="cb_38" cityname="단양" region="16"/>단양</label>
 	<label id="label_52"><input type="checkbox" id="cb_52" cityname="보은" region="16"/>보은</label>
@@ -188,6 +202,7 @@
 	<label id="label_137"><input type="checkbox" id="cb_137" cityname="청원" region="16"/>청원</label>
 	<label id="label_138"><input type="checkbox" id="cb_138" cityname="청주" region="16"/>청주</label>
 	<label id="label_140"><input type="checkbox" id="cb_140" cityname="충주" region="16"/>충주</label>
+</div>
 </div>
 	</body>
 </html>

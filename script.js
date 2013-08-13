@@ -31,7 +31,20 @@
 			label.onmouseover = mOverEvent;
 			label.onmouseout = mOutEvent;
 		}
-	}
+		var category = cbx.getElementsByClassName("category")[0];
+		var list = category.getElementsByTagName("li");
+		
+		for (var i = 0; i < list.length; i++) {
+			list[i].onclick = listClick;
+			list[i].onmouseover = listOver;
+			list[i].onmouseout = listOut;
+		}
+		list = cbx.getElementsByClassName('checkbox_region');
+		for(var i = 0;i<list.length;i++){
+			list[i].style.display="none";
+		}
+		list[0].style.display = "block";
+	}	
 
 	function clickEvent(evt) {
 		var id_num = evt.target.id.split("_")[1];
@@ -107,6 +120,70 @@
 		}
 	}
 
+	function listClick(evt) {
+		var list = cbx.getElementsByClassName('checkbox_region');
+		for(var i = 0;i<list.length;i++){
+			list[i].style.display="none";
+		}
+		
+		var region_id = evt.target.getAttribute('regionId');
+		var cbx_region = cbx.getElementById("cb_region_"+region_id);
+		cbx_region.style.display="block";
+		
+		var region = svg.getElementById("region_"+region_id);
+		if (evt.target.choosen) {
+			evt.target.choosen = false;
+			evt.target.style.backgroundColor = "beige";
+			region.setAttribute("fill", "beige");
+		}
+		else {
+			var elements = cbx.getElementsByTagName("li");
+			for (var i=0; i<elements.length; i++) {
+				elements[i].choosen = false;
+				elements[i].style.backgroundColor = "transparent";
+				var relatedRegion_id = elements[i].getAttribute('regionId');
+				var relatedRegion = svg.getElementById("region_"+relatedRegion_id);
+				relatedRegion.setAttribute("fill-opacity", 0);
+			}
+			evt.target.choosen = true;
+			evt.target.style.backgroundColor = "yellow";
+			region.setAttribute("fill", "yellow");
+			region.setAttribute("fill-opacity", 0.5);
+		}
+		
+	}
+	function listOver(evt) {
+		evt.target.style.backgroundColor = "beige";
+		
+		var region_id = evt.target.getAttribute("regionId");
+		var region = svg.getElementById("region_"+region_id);
+		
+		
+		
+		if (evt.target.choosen) {
+			region.setAttribute("fill","yellow");
+			evt.target.style.backgroundColor = "yellow";
+		} else {
+			region.setAttribute("fill","beige");
+			region.setAttribute("fill-opacity", 1);
+			evt.target.style.backgroundColor = "beige";
+		}
+	}
+	function listOut(evt) {
+		evt.target.style.backgroundColor = "transparent";
+		
+		var region_id = evt.target.getAttribute("regionId");
+		var region = svg.getElementById("region_"+region_id);
+		
+		if (evt.target.choosen) {
+			evt.target.style.backgroundColor = "yellow";
+			
+		} else {
+			region.setAttribute("fill-opacity", 0);
+			evt.target.style.backgroundColor = "transparent";
+		}
+	}
+	
 	function getAreaRatio() {
 		const TOTAL_AREA = 99959.63;
 		var region = svg.getElementById("cities");
