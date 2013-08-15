@@ -1,34 +1,30 @@
 #banner {
-	background-color:yellow;
 	float: left;
 	margin-left: 5%;
 	margin-right: 5%;
-	width: 90%;
 	margin-top: 15px;
 	margin-bottom: 15px;
+	
+	width: 90%;
 	padding: 10px;
+
+	background-color:yellow;
 }
 #map {
-	background-color: rgb(240, 240, 240);
 	float: left;
 	margin-left: 5%;
+	
 	width:	45%;
 	height: auto;
+
+	background-color: rgb(240, 240, 240);
 }
 #checkboxlist {
-	background-color:gray;
 	float: right;
 	margin-right: 5%;
+
 	width:	40%;
-	height: 100%;
-}
-#share {
-	display:block;
-	background-color:yellow;
-	position: absolute;
-	top:83%;
-	left:36%;
-	border: 2px;
-	width:150px;
-	height:45px;
+	height: 400px;
+
+	background-color:gray;
 }

@@ -1,18 +1,36 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset='utf-8'>
 		<link rel="stylesheet" type="text/css" href="index.css">
+		<script type="text/javascript" src="script.js"></script>
+		<script type="text/javascript">
+			function init() {
+				loadDocs();
+				setOptions();
+				cbxInitialize();
+			}
+			window.onload=init;
+		</script>
 	</head>
+
 	
-<body onload="loadDocs(); setMapOption(); setCheckBoxOption(); loadURL();">
+	<!--[if IE]>
+		<style type="text/css">
+		body {
+			filter:blur(add=false, direction=270 strength=10);
+			-ms-filter:blur(add=false, direction=270 strength=10);
+		}
+		</style>
+		<h1 style="color:#FF0000; padding:0.5em; font-size:50pt !important;">Please, Don't Use Internet Explorer</h1>
+	<![endif]-->
+<body>
 	<div id="banner">
 		<h1 align="center">Have you ever been to . KOREA</h1>
 	</div>
 
-	<object id="map" type="image/svg+xml" data="map.svg"></object>
-	<a href=""><div id="share"><h4 align="center">Share at Facebook</h4></div></a>
-	<object id="checkboxlist" type="text/html" data="checkbox.html">
+	<object id="map" type="image/svg+xml" data="map.svg" ></object>
+	<object id="checkboxlist" type="text/html" data="checkbox.html" ></object>
 
-	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
