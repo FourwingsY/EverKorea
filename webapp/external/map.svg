@@ -1,4 +1,9 @@
-<svg id="svgmap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:attrib="http://www.carto.net/attrib/" width="100%" height="100%" viewBox="78742.3 -584111.1 478020.8 632482.1">
+<svg id="svgmap"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:attrib="http://www.carto.net/attrib/"
+	width="100%" height="100%"
+	viewBox="78742.3 -584111.1 478020.8 632482.1">
 
 <text id="location" x="400000" y="-50000" font-size="50000" fill="red" > </text>
 <text id="totalarea" x="300000" y="10000" font-size="50000" fill="black" >0.00%</text>

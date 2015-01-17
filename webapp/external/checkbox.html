@@ -1,0 +1,21 @@
+<link rel="stylesheet" type="text/css" href="./stylesheet/checkbox.css">
+
+<div id="category" class="category">
+	<ul>
+		<li ng-repeat="region in data.regions">{{region.name}}</li>
+	</ul>
+</div>
+
+<div id="cb_list" class="checkbox_list">
+	<div ng-repeat="region in data.regions"
+		ng-show="region.hover">
+		<label ng-repeat="city in data.cities | citiesInRegion:region.id"
+			ng-class="{label:1, hover:city.hover, selected:city.selected}"
+			ng-mouseover="over(city.id, city.region)"
+			ng-mouseout ="out(city.id, city.region)" >
+			<input type="checkbox"
+				ng-attr-id="{{'cb_'+city.id}}"
+				ng-class="{checkbox:1}"
+				ng-click="click(city.id)"/>{{city.name}}</label>
+	</div>
+</div>

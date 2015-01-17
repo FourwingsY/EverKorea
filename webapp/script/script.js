@@ -1,4 +1,4 @@
-//<![CDATA[
+
 	function loadDocs() {
 		svg = document.getElementById("map").getSVGDocument();
 		cbx = document.getElementById("checkboxlist").contentDocument;

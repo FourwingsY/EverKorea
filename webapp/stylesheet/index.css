@@ -1,0 +1,66 @@
+#banner {
+	float: left;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	
+	width: 90%;
+	padding: 10px;
+
+	background-color:yellow;
+}
+#map {
+	float: left;
+	margin-left: 5%;
+	
+	width:	45%;
+	height: auto;
+
+	background-color: rgb(240, 240, 240);
+}
+#checkboxlist {
+	float: right;
+	margin-right: 5%;
+
+	width:	40%;
+	height: 400px;
+
+	background-color:gray;
+}
+
+/*
+ * fill: none  is too slow.
+ * fill-opacity: 0 is faster
+ */
+.city, .label {
+	fill:yellow;
+	fill-opacity: 0;
+}
+
+.city.hover, .label.hover {
+	fill:yellow;
+	fill-opacity: 1;
+	background: yellow;
+}
+
+.city.selected.hover, .label.selected.hover {
+	fill:orange;
+	fill-opacity: 1;
+	background: orange;
+}
+
+.city.selected, .label.selected {
+	fill:red;
+	fill-opacity: 1;
+	background: red;
+}
+
+.region {
+	fill: beige;
+	fill-opacity: 0;
+}
+.region.hover {
+	fill: beige;
+	fill-opacity: 1;
+}

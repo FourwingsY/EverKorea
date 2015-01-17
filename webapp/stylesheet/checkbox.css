@@ -4,6 +4,9 @@
 	
 	width:30%;
 }
+.category.hover {
+	background-color: beige;
+}
 .category ul {
 	list-style-type: none;
 	
@@ -31,4 +34,11 @@ label {
 	display: inline-block;
 	
 	width: 70px;
+}
+
+.cbgroup {
+	display: none;
+}
+.cbgroup.hover {
+	display: block;
 }

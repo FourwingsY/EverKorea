@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+	<meta charset='utf-8'>
+	<link rel="stylesheet" type="text/css" href="./stylesheet/index.css">
+	<!-- Libraries -->
+	<script type="text/javascript" src="./script/angular.js"></script>
+	<script type="text/javascript" src="./script/angular-resource.js"></script>
+</head>
+<body ng-app="App">
+	<div id="banner">
+		<h1 align="center">Have you ever been to . KOREA</h1>
+	</div>
+	<div class="container" ng-controller="MapController as map" >
+		<ng-include id="map" src="'./external/angularmap.svg'"></ng-include>
+		<ng-include id="checkboxlist" src="'./external/checkbox.html'"></ng-include>
+	</div>
+	
+	<!-- Controllers -->
+	<script type="text/javascript" src="./script/App.js"></script>
+	
+</body>
