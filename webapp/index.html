@@ -2,6 +2,7 @@
 <head>
 	<meta charset='utf-8'>
 	<link rel="stylesheet" type="text/css" href="./stylesheet/index.css">
+	<link rel="stylesheet" type="text/css" href="./stylesheet/checkbox.css">
 	<!-- Libraries -->
 	<script type="text/javascript" src="./script/angular.js"></script>
 	<script type="text/javascript" src="./script/angular-resource.js"></script>
@@ -10,9 +11,88 @@
 	<div id="banner">
 		<h1 align="center">Have you ever been to . KOREA</h1>
 	</div>
+
 	<div class="container" ng-controller="MapController as map" >
-		<ng-include id="map" src="'./external/angularmap.svg'"></ng-include>
-		<ng-include id="checkboxlist" src="'./external/checkbox.html'"></ng-include>
+		<div class="map-wrapper">
+		<!-- Map, SVG -->
+		<svg id="map"
+			width="100%" height="100%"
+			viewBox="78742.3 -584111.1 478020.8 632482.1">
+
+			<text id="location" x="400000" y="-50000" font-size="50000" fill="red" >{{map.currentCityName}}</text>
+			<text id="totalarea" x="300000" y="10000" font-size="50000" fill="black" >0.00%</text>
+
+			<g id="regions" stroke="black" stroke-width='400' stroke-linecap="round" stroke-linejoin="round">
+				<path ng-repeat="region in data.regions"
+					ng-attr-d="{{region.d}}"
+					ng-class="{region:1, hover:region.hover}" />
+			</g>
+			<g id="cities" stroke="gray" stroke-width='200' stroke-linecap="round" stroke-linejoin="round">
+				<path ng-repeat="city in data.cities"
+					ng-mouseover="cityover(city.id, city.region)"
+					ng-click="click(city.id)"
+					ng-attr-area="{{city.area}}"
+					ng-attr-d="{{city.d}}"
+					ng-class="{city:1, hover:city.hover, selected:city.selected}" />
+			</g>
+		</svg>
+
+		<!-- Zoom, SVG -->
+		<svg id="zoom"
+			width="100%" height="100%"
+			ng-controller="ZoomController as zoom"
+			ng-attr-view_box="{{zoom.zoomBox}}"
+			ng-mousemove="zoom.move($event)">
+
+			<defs>
+				<mask id="circClip" >
+					<circle id="zoom-mask" class="zoom_circle" ng-attr-cx="{{zoom.cx}}" ng-attr-cy="{{zoom.cy}}" r="50000" fill="white"/>
+				</mask>
+			</defs>
+
+			<g id="masked" style="mask: url(#circClip);">
+			<circle id="zoom-back" class="zoom_circle" ng-attr-cx="{{zoom.cx}}" ng-attr-cy="{{zoom.cy}}" r="50000" fill="rgb(240,240,240)"/>
+			<g id="regions" stroke="black" stroke-width='400' stroke-linecap="round" stroke-linejoin="round">
+				<path ng-repeat="region in data.regions"
+					ng-attr-d="{{region.d}}"
+					ng-class="{region:1, hover:region.hover}" />
+			</g>
+			<g id="cities" stroke="gray" stroke-width='200' stroke-linecap="round" stroke-linejoin="round">
+				<path ng-repeat="city in data.cities"
+					ng-mouseover="cityover(city.id, city.region)"
+					ng-click="click(city.id)"
+					ng-attr-area="{{city.area}}"
+					ng-attr-d="{{city.d}}"
+					ng-class="{city:1, hover:city.hover, selected:city.selected}" />
+			</g>
+			<circle id="zoom-front" class="zoom_circle" ng-attr-cx="{{zoom.cx}}" ng-attr-cy="{{zoom.cy}}" r="50000" fill="none"
+			stroke="black" stroke-width="1500"/>
+			</g>
+		</svg>
+		</div>
+
+		<!-- Checkbox -->
+		<div id="checkboxlist"> 
+			<div id="category" class="category">
+				<ul>
+					<li ng-repeat="region in data.regions">{{region.name}}</li>
+				</ul>
+			</div>
+
+			<div id="cb_list" class="checkbox_list">
+				<div ng-repeat="region in data.regions"
+					ng-show="region.hover">
+					<label ng-repeat="city in data.cities | citiesInRegion:region.id"
+						ng-class="{label:1, hover:city.hover, selected:city.selected}"
+						ng-mouseover="over(city.id, city.region)">
+						<input type="checkbox"
+							ng-attr-id="{{'cb_'+city.id}}"
+							ng-class="{checkbox:1}"
+							ng-click="click(city.id)"/>{{city.name}}</label>
+				</div>
+			</div>
+		</div>
+
 	</div>
 	
 	<!-- Controllers -->

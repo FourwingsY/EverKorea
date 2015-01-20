@@ -1,31 +1,53 @@
+/********************************************
+ 1. Position and Size
+*********************************************/
+
+body {
+	width: 800px;
+	margin: 0 auto;
+}
 #banner {
-	float: left;
-	margin-left: 5%;
-	margin-right: 5%;
+	width: 778px;
 	margin-top: 15px;
 	margin-bottom: 15px;
-	
-	width: 90%;
 	padding: 10px;
+	border: 1px solid #000;
+}
+.map-wrapper {
+	position: relative;
+}
+#map {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width: 420px;
+	height: auto;
+}
+#zoom {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width: 420px;
+	height: 556px;
+}
 
+#checkboxlist {
+	float: right;
+	padding: 20px 20px;
+	width: 320px;
+	height: 400px;
+}
+
+/********************************************
+ 2. Color and style
+*********************************************/
+#banner {
 	background-color:yellow;
 }
 #map {
-	float: left;
-	margin-left: 5%;
-	
-	width:	45%;
-	height: auto;
-
 	background-color: rgb(240, 240, 240);
 }
 #checkboxlist {
-	float: right;
-	margin-right: 5%;
-
-	width:	40%;
-	height: 400px;
-
 	background-color:gray;
 }
 
