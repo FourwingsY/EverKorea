@@ -75,7 +75,9 @@
 		<div id="checkboxlist"> 
 			<div id="category" class="category">
 				<ul>
-					<li ng-repeat="region in data.regions">{{region.name}}</li>
+					<li ng-repeat="region in data.regions"
+						ng-mouseover="catover(region.id)"
+						ng-class="{hover:region.hover}" >{{region.name}}</li>
 				</ul>
 			</div>
 

@@ -60,6 +60,12 @@ app.controller("MapController", ['$scope', 'dataService', function($scope, dataS
 		checkbox.checked = city.selected;
 	};
 
+	$scope.catover = function(regionId) {
+		var region = $scope.data.regions[regionId];
+		this.resetHover();
+		region.hover = true;
+	}.bind(this);
+
 	this.resetHover = function() {
 		for (var i in $scope.data.cities) {
 			var c = $scope.data.cities[i];
@@ -133,5 +139,10 @@ app.controller("ZoomController", function() {
 		var result = [parseInt(x), parseInt(y)];
 
 		return result;
-	}
+	};
+
+	// 초기화 작업
+	this.cx = 0;
+	this.cy = 0;
+	this.zoomBox = this.getViewBox([0,0], 2);
 });
